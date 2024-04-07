@@ -295,7 +295,7 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: calendar_month
+        type: calendar_week
         options:
           offset: 0
           display_reset: 0
@@ -678,7 +678,7 @@ display:
           3: AND
           4: AND
       style:
-        type: calendar_month
+        type: calendar_week
         options:
           grouping: {  }
           row_class: ''
@@ -687,7 +687,8 @@ display:
           calendar_fields:
             dates: dates
           calendar_weekday_start: '1'
-          calendar_timestamp: 'this month'
+          calendar_timestamp: now
+          calendar_work_week: 0
       row:
         type: fields
       query:
@@ -701,6 +702,29 @@ display:
       relationships: {  }
       use_ajax: true
       header:
+        display_link_1:
+          id: display_link_1
+          table: views
+          field: display_link
+          relationship: none
+          group_type: group
+          admin_label: Month
+          plugin_id: display_link
+          label: Month
+          empty: true
+          display_id: page
+        display_link:
+          id: display_link
+          table: views
+          field: display_link
+          relationship: none
+          group_type: group
+          admin_label: Week
+          plugin_id: display_link
+          label: Week
+          empty: true
+          display_id: week
+      footer:
         area_text_custom:
           id: area_text_custom
           table: views
@@ -712,7 +736,6 @@ display:
           empty: false
           content: "<p>\r\nThis website is built with Drupal (10) and the <a href=\"https://www.drupal.org/project/calendar_view\">Calendar View</a> module.\r\n<br>\r\nEvents are imported/updated from the <a href=\"https://www.drupal.org/drupalorg/docs/apis/rest-and-other-apis\">Drupal.org APIs</a> with a custom migration running every 3 hours.\r\n<br>\r\n<em>Very long</em> events are not displayed - if event lasts more than one month.\r\n</p>\r\n<p>\r\n<small>\r\n💻 View <a href=\"https://github.com/MatthieuScarset/drupal-calendar\">the full source code on GitHub</a>.\r\n<br>\r\n💙 Made with love and a bit of sleep deprivation by <a href=\"https://matthieuscarset.com/\">Matthieu Scarset</a>.\r\n</small>\r\n</p>"
           tokenize: false
-      footer: {  }
       display_extenders: {  }
     cache_metadata:
       max-age: -1
@@ -729,10 +752,36 @@ display:
         - 'config:field.storage.node.link'
   page:
     id: page
-    display_title: Page
+    display_title: Month
     display_plugin: page
     position: 1
     display_options:
+      pager:
+        type: calendar_month
+        options:
+          offset: 0
+          display_reset: 0
+          use_previous_next: 0
+          label_format: F
+      style:
+        type: calendar_month
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          calendar_display_rows: 0
+          calendar_fields:
+            dates: dates
+          calendar_weekday_start: '1'
+          calendar_timestamp: now
+      row:
+        type: fields
+        options: {  }
+      defaults:
+        pager: false
+        style: false
+        row: false
+      display_description: ''
       exposed_block: false
       display_extenders: {  }
       path: calendar
@@ -745,6 +794,54 @@ display:
         menu_name: main
         parent: ''
         context: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.address'
+        - 'config:field.storage.node.dates'
+        - 'config:field.storage.node.link'
+  week:
+    id: week
+    display_title: Week
+    display_plugin: page
+    position: 2
+    display_options:
+      pager:
+        type: calendar_week
+        options:
+          offset: 0
+          display_reset: 0
+          use_previous_next: 0
+          label_format: '\w\e\e\k W'
+      style:
+        type: calendar_week
+        options:
+          grouping: {  }
+          row_class: ''
+          default_row_class: true
+          calendar_display_rows: 0
+          calendar_fields:
+            dates: dates
+          calendar_weekday_start: '1'
+          calendar_timestamp: now
+          calendar_work_week: 0
+      row:
+        type: fields
+        options: {  }
+      defaults:
+        pager: false
+        style: false
+        row: false
+      display_description: ''
+      display_extenders: {  }
+      path: week
     cache_metadata:
       max-age: -1
       contexts:
