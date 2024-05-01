@@ -295,17 +295,31 @@ display:
           separator: ', '
           field_api_classes: false
       pager:
-        type: calendar_week
+        type: full
         options:
           offset: 0
-          display_reset: 0
-          use_previous_next: 0
-          label_format: F
+          items_per_page: 10
+          total_pages: null
+          id: 0
+          tags:
+            next: 'Next ›'
+            previous: '‹ Previous'
+            first: '« First'
+            last: 'Last »'
+          expose:
+            items_per_page: false
+            items_per_page_label: 'Items per page'
+            items_per_page_options: '5, 10, 25, 50'
+            items_per_page_options_all: false
+            items_per_page_options_all_label: '- All -'
+            offset: false
+            offset_label: Offset
+          quantity: 9
       exposed_form:
         type: basic
         options:
           submit_button: Apply
-          reset_button: false
+          reset_button: true
           reset_button_label: Reset
           exposed_sorts_label: 'Sort by'
           expose_sort_order: true
@@ -451,6 +465,53 @@ display:
             default_group: All
             default_group_multiple: {  }
             group_items: {  }
+        calendar_timestamp:
+          id: calendar_timestamp
+          table: views
+          field: calendar_timestamp
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: date
+          operator: '>='
+          value:
+            min: ''
+            max: ''
+            value: ''
+            type: offset
+          group: 2
+          exposed: true
+          expose:
+            operator_id: calendar_timestamp_op
+            label: 'Jump to'
+            description: 'An offset from the current time such as "next week"'
+            use_operator: false
+            operator: calendar_timestamp_op
+            operator_limit_selection: false
+            operator_list: {  }
+            identifier: calendar_timestamp
+            required: false
+            remember: false
+            multiple: false
+            remember_roles:
+              authenticated: authenticated
+              anonymous: '0'
+              admin: '0'
+            min_placeholder: ''
+            max_placeholder: ''
+            placeholder: ''
+          is_grouped: false
+          group_info:
+            label: ''
+            description: ''
+            identifier: ''
+            optional: true
+            widget: select
+            multiple: false
+            remember: false
+            default_group: All
+            default_group_multiple: {  }
+            group_items: {  }
         title:
           id: title
           table: node_field_data
@@ -537,7 +598,7 @@ display:
             group_items: {  }
           reduce_duplicates: false
           vid: event_format
-          type: select
+          type: radios
           hierarchy: false
           limit: true
           error_message: true
@@ -683,12 +744,12 @@ display:
           grouping: {  }
           row_class: ''
           default_row_class: true
-          calendar_display_rows: 0
           calendar_fields:
             dates: dates
-          calendar_weekday_start: '1'
+          calendar_display_rows: false
+          calendar_weekday_start: true
           calendar_timestamp: now
-          calendar_work_week: 0
+          calendar_work_week: false
       row:
         type: fields
       query:
@@ -743,6 +804,8 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - url.query_args
+        - 'url.query_args:calendar_timestamp'
         - user
         - 'user.node_grants:view'
         - user.permissions
@@ -762,17 +825,17 @@ display:
           offset: 0
           display_reset: 0
           use_previous_next: 0
-          label_format: F
+          label_format: 'F Y'
       style:
         type: calendar_month
         options:
           grouping: {  }
           row_class: ''
           default_row_class: true
-          calendar_display_rows: 0
           calendar_fields:
             dates: dates
-          calendar_weekday_start: '1'
+          calendar_display_rows: false
+          calendar_weekday_start: true
           calendar_timestamp: now
       row:
         type: fields
@@ -784,7 +847,7 @@ display:
       display_description: ''
       exposed_block: false
       display_extenders: {  }
-      path: calendar
+      path: calendar/month
       menu:
         type: normal
         title: Calendar
@@ -800,6 +863,7 @@ display:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - 'url.query_args:calendar_timestamp'
         - user
         - 'user.node_grants:view'
         - user.permissions
@@ -826,12 +890,12 @@ display:
           grouping: {  }
           row_class: ''
           default_row_class: true
-          calendar_display_rows: 0
           calendar_fields:
             dates: dates
-          calendar_weekday_start: '1'
+          calendar_display_rows: false
+          calendar_weekday_start: true
           calendar_timestamp: now
-          calendar_work_week: 0
+          calendar_work_week: false
       row:
         type: fields
         options: {  }
@@ -840,14 +904,16 @@ display:
         style: false
         row: false
       display_description: ''
+      exposed_block: false
       display_extenders: {  }
-      path: week
+      path: calendar/week
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
+        - 'url.query_args:calendar_timestamp'
         - user
         - 'user.node_grants:view'
         - user.permissions

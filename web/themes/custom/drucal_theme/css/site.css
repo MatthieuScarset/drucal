@@ -21,3 +21,46 @@
 .calendar-view-pager .pager__item > *{
   padding:0;
 }
+
+[data-calendar-view] caption{
+  position:absolute !important;
+  overflow:hidden;
+  clip:rect(1px, 1px, 1px, 1px);
+  width:1px;
+  height:1px;
+  word-wrap:normal;
+}
+
+.view-style-calendar-view{
+  display:grid;
+  grid-template-areas:"header pager" "sidebar content" "footer footer";
+  row-gap:0.25rem;
+  -moz-column-gap:2rem;
+       column-gap:2rem;
+  grid-auto-rows:minmax(1rem, auto);
+  grid-template-columns:0.5fr 2.5fr;
+}
+
+.view-style-calendar-view .view-header{
+    grid-area:header;
+  }
+
+.view-style-calendar-view .view-footer{
+    grid-area:footer;
+  }
+
+.view-style-calendar-view .calendar-view-pager{
+    grid-area:pager;
+  }
+
+.view-style-calendar-view .view-filters{
+    grid-area:sidebar;
+  }
+
+.view-style-calendar-view .view-content{
+    grid-area:content;
+  }
+
+.view-style-calendar-view .pager__items{
+    margin:0;
+  }

@@ -1,0 +1,20 @@
+_core:
+  default_config_hash: n--6ZhxV8si6n-Rv8aaHIqpekEW1BUXQ9l9a3eBlwYw
+encoding: utf8
+indent: 1
+input-xml: '0'
+output-xml: '0'
+hide-comments: 1
+wrap: '1000'
+indent-spaces: '2'
+drop-empty-elements: 0
+drop-empty-paras: 0
+merge-divs: 1
+merge-spans: 1
+quote-ampersand: 0
+quote-nbsp: 0
+coerce-endtags: 0
+custom-tags: drupal-big-pipe-scripts-bottom-marker
+escape-scripts: 0
+skip-nested: 0
+compact: 0

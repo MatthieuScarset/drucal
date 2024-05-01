@@ -6,16 +6,22 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Render\Element\RenderElement;
+use Drupal\views\Plugin\views\filter\FilterPluginBase;
 
 /**
  * Implements hook_form_FORM_ID_alter() for views_exposed_form.
  */
 function drucal_form_views_exposed_form_alter(&$form, FormStateInterface $form_state) {
   $view = $form_state->getStorage()['view'];
+
   if ($view->id() == 'calendar') {
-    $filters = ['event_format', 'event_type', 'country'];
-    foreach ($filters as $name) {
-      $form[$name]['#attributes']['data-autosubmit'] = TRUE;
+    // Autosubmit.
+    foreach (['event_format', 'event_type', 'country'] as $name) {
+      if (isset($form[$name])) {
+        $form[$name]['#attributes']['data-autosubmit'] = TRUE;
+      }
     }
 
     $form['#attached']['library'][] = 'drucal_theme/autosubmit';

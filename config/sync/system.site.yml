@@ -8,7 +8,7 @@ slogan: 'Browse events from drupal.org with ease in a dynamic Calendar view!'
 page:
   403: ''
   404: ''
-  front: /calendar
+  front: /calendar/week
 admin_compact_mode: false
 weight_select_max: 100
 default_langcode: en
