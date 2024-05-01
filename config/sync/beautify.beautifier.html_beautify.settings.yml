@@ -1,0 +1,9 @@
+indent_inner_html: 0
+indent_char: ' '
+indent_size: '4'
+wrap_line_length: '32768'
+preserve_newlines: 0
+preserve_newlines_max: '32768'
+indent_scripts: normal
+remove_comments: 1
+compact: 0

@@ -12,6 +12,8 @@ services:
       environment:
         SIMPLETEST_BASE_URL: "http://drucal.lndo.site"
         SIMPLETEST_DB: "sqlite://localhost/sites/default/files/db.sqlite"
+    build_as_root:
+      - apt-get update && apt-get install -y libtidy-dev && docker-php-ext-install tidy && docker-php-ext-enable tidy
 tooling:
   test:
     service: appserver

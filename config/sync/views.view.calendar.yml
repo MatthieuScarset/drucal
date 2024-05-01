@@ -813,6 +813,40 @@ display:
         - 'config:field.storage.node.address'
         - 'config:field.storage.node.dates'
         - 'config:field.storage.node.link'
+  feed:
+    id: feed
+    display_title: Feed
+    display_plugin: feed
+    position: 3
+    display_options:
+      pager:
+        type: some
+        options:
+          offset: 0
+          items_per_page: 10
+      row:
+        type: node_rss
+        options: {  }
+      display_extenders: {  }
+      path: calendar/rss.xml
+      displays:
+        page: page
+        week: week
+        default: '0'
+    cache_metadata:
+      max-age: -1
+      contexts:
+        - 'languages:language_content'
+        - 'languages:language_interface'
+        - url
+        - 'url.query_args:calendar_timestamp'
+        - user
+        - 'user.node_grants:view'
+        - user.permissions
+      tags:
+        - 'config:field.storage.node.address'
+        - 'config:field.storage.node.dates'
+        - 'config:field.storage.node.link'
   page:
     id: page
     display_title: Month
