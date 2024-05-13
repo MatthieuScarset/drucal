@@ -1,6 +1,6 @@
 name: Drucal
 type: theme
-base theme: claro
+base theme: gin
 description: 'A child theme for Drucal site based on Claro'
 package: Drucal
 version: VERSION

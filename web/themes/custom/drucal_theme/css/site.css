@@ -31,13 +31,34 @@
     word-wrap:normal;
   }
 
-.calendar-view-table td.selection,
-  .calendar-view-table td[data-calendar-view-today]{
+.calendar-view-table tr{
+    border-width:0;
+  }
+
+@media (min-width: 48rem){
+    .calendar-view-table thead tr,
+    .calendar-view-table th:first-child{
+      border-top-left-radius:var(--gin-border-l);
+    }
+    .calendar-view-table thead tr,
+    .calendar-view-table th:last-child{
+      border-top-right-radius:var(--gin-border-l);
+    }
+    .calendar-view-table tr:last-child td:first-child{
+      border-bottom-left-radius:var(--gin-border-l);
+    }
+    .calendar-view-table tr:last-child td:last-child{
+      border-bottom-right-radius:var(--gin-border-l);
+    }
+  }
+
+.calendar-view-table td[data-calendar-view-today],
+  .calendar-view-table td[data-calendar-view-selected]{
     border-width:2px;
     border-color:var(--calendar-view-color-evil);
   }
 
-.calendar-view-table td.selection{
+.calendar-view-table td[data-calendar-view-selected]{
     border-style:dashed;
   }
 .view-style-calendar-view{

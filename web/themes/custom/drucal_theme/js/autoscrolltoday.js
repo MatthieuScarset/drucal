@@ -5,7 +5,7 @@
         let rect = el.getBoundingClientRect();
         setTimeout(() => {
           window.scrollTo({top: Math.floor(rect.top - 10), behavior: "smooth"});
-        }, 500);
+        }, 1000);
       });
     }
   }
