@@ -43,4 +43,5 @@ module:
 theme:
   claro: 0
   drucal_theme: 0
+  gin: 0
 profile: minimal

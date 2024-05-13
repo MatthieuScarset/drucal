@@ -1,0 +1,16 @@
+features:
+  node_user_picture: false
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: 1
+enable_darkmode: '1'
+preset_accent_color: blue
+accent_color: ''
+preset_focus_color: gin
+focus_color: ''
+high_contrast_mode: 0
+classic_toolbar: vertical
+secondary_toolbar_frontend: 1
+layout_density: default
+show_description_toggle: 0
+show_user_theme_settings: 0

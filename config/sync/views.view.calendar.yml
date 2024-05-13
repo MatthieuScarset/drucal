@@ -806,7 +806,6 @@ display:
         - url
         - url.query_args
         - 'url.query_args:calendar_timestamp'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -840,7 +839,6 @@ display:
         - 'languages:language_interface'
         - url
         - 'url.query_args:calendar_timestamp'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -898,7 +896,6 @@ display:
         - 'languages:language_interface'
         - url
         - 'url.query_args:calendar_timestamp'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
@@ -948,7 +945,6 @@ display:
         - 'languages:language_interface'
         - url
         - 'url.query_args:calendar_timestamp'
-        - user
         - 'user.node_grants:view'
         - user.permissions
       tags:
