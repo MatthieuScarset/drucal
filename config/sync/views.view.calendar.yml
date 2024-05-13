@@ -483,7 +483,7 @@ display:
           exposed: true
           expose:
             operator_id: calendar_timestamp_op
-            label: 'Jump to'
+            label: 'Jump to date'
             description: 'An offset from the current time such as "next week"'
             use_operator: false
             operator: calendar_timestamp_op

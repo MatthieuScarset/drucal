@@ -12,3 +12,10 @@ autosubmit:
   dependencies:
     - core/drupal
     - core/once
+
+autoscrolltoday:
+  js:
+    js/autoscrolltoday.js: {}
+  dependencies:
+    - core/drupal
+    - core/once

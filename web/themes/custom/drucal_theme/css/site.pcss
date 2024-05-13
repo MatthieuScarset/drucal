@@ -19,26 +19,43 @@
   padding: 0;
 }
 
-[data-calendar-view] caption {
-  position: absolute !important;
-  overflow: hidden;
-  clip: rect(1px, 1px, 1px, 1px);
-  width: 1px;
-  height: 1px;
-  word-wrap: normal;
+.calendar-view-table {
+  caption {
+    position: absolute !important;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    width: 1px;
+    height: 1px;
+    word-wrap: normal;
+  }
+
+  td.selection,
+  td[data-calendar-view-today] {
+    border-width: 2px;
+    border-color: var(--calendar-view-color-evil);
+  }
+
+  td.selection {
+    border-style: dashed;
+  }
 }
 
+// Grid layout.
 .view-style-calendar-view {
   display: grid;
   grid-template-areas:
-        "header pager"
-        "sidebar content"
-        "footer footer";
+    "header pager"
+    "messages messages"
+    "sidebar content"
+    "footer footer";
   row-gap: 0.25rem;
   column-gap: 2rem;
   grid-auto-rows: minmax(1rem, auto);
   grid-template-columns: 0.5fr 2.5fr;
 
+  .messages-list {
+    grid-area: messages;
+  }
   .view-header {
     grid-area: header;
   }
@@ -50,12 +67,19 @@
   }
   .view-filters {
     grid-area: sidebar;
+
+    .views-exposed-form {
+      position: sticky;
+      top: 0;
+    }
   }
   .view-content {
     grid-area: content;
   }
-
   .pager__items {
     margin: 0;
+  }
+  .feed-icons {
+    grid-area: footer;
   }
 }

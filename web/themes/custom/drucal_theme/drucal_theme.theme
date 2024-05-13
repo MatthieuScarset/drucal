@@ -6,9 +6,6 @@
  */
 
 use Drupal\Core\Form\FormStateInterface;
-use Drupal\Core\Render\Element;
-use Drupal\Core\Render\Element\RenderElement;
-use Drupal\views\Plugin\views\filter\FilterPluginBase;
 
 /**
  * Implements hook_form_FORM_ID_alter() for views_exposed_form.
